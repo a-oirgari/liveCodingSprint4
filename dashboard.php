@@ -1,6 +1,11 @@
 <?php
+session_start();
 
 
+if (!isset($_SESSION['is_logged_in'])) {
+    header('Location: login.php');
+    exit;
+}
 
 ?>
 
@@ -13,7 +18,8 @@
     <strong>Don't underestimate this dashboard 🤪</strong>
 </p>
 
-<p>Bienvenue </p>
+<!-- <p>Bienvenue </p> -->
+ <p>Bienvenue <?php echo $_SESSION['email']; ?></p>
 
 <a href="logout.php">Déconnexion</a>
 
